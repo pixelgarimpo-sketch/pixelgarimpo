@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelGarimpo | Achadinhos</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      color: #222;
+    }
+    header {
+      background: #171923;
+      color: white;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; color: #cbd0e0; }
+    main {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+    .busca {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 16px;
+    }
+    .produto {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px #0000000d;
+    }
+    .produto .icone { font-size: 42px; }
+    .produto h2 { font-size: 17px; }
+    .produto p { color: #666; font-size: 14px; }
+    .botao {
+      display: block;
+      padding: 12px;
+      text-align: center;
+      background: #f4a900;
+      color: #171923;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px 16px;
+      color: #666;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎯 PixelGarimpo</h1>
+    <p>Seus achadinhos favoritos em um só lugar!</p>
+  </header>
+
+  <main>
+    <input
+      class="busca"
+      id="busca"
+      type="search"
+      placeholder="🔎 Buscar produtos..."
+      aria-label="Buscar produtos"
+    >
+
+    <section class="produtos" id="produtos">
+      <article class="produto">
+        <div class="icone">🎧</div>
+        <h2>Fones de ouvido</h2>
+        <p>Achadinhos para ouvir suas músicas.</p>
+        <a class="botao" href="#"
+           onclick="return aviso()">Ver produto</a>
+      </article>
+
+      <article class="produto">
+        <div class="icone">📱</div>
+        <h2>Acessórios para celular</h2>
+        <p>Itens úteis para o dia a dia.</p>
+        <a class="botao" href="#"
+           onclick="return aviso()">Ver produto</a>
+      </article>
+
+      <article class="produto">
+        <div class="icone">🏠</div>
+        <h2>Casa e organização</h2>
+        <p>Ideias práticas para sua casa.</p>
+        <a class="botao" href="#"
+           onclick="return aviso()">Ver produto</a>
+      </article>
+
+      <article class="produto">
+        <div class="icone">🎮</div>
+        <h2>Games e acessórios</h2>
+        <p>Achadinhos para quem curte jogar.</p>
+        <a class="botao" href="#"
+           onclick="return aviso()">Ver produto</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>PixelGarimpo · Achadinhos selecionados</p>
+    <p>Os links de afiliado serão adicionados posteriormente.</p>
+  </footer>
+
+  <script>
+    function aviso() {
+      alert("Link do produto ainda não cadastrado.");
+      return false;
+    }
+
+    document.getElementById("busca").addEventListener("input", function() {
+      const termo = this.value.toLowerCase();
+
+      document.querySelectorAll(".produto").forEach(function(produto) {
+        produto.style.display =
+          produto.innerText.toLowerCase().includes(termo) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+  </html>
